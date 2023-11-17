@@ -14,21 +14,21 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "4.15.4",
     "@strapi/plugin-i18n": "4.15.4",
     "@strapi/plugin-users-permissions": "4.15.4",
     "@strapi/strapi": "4.15.4",
     "better-sqlite3": "8.6.0",
     "pg": "^8.11.3",
     "pg-connection-string": "^2.6.2",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "5.3.4",
-    "styled-components": "5.3.3"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^5.3.4",
+    "strapi-tiptap-editor": "^0.9.12",
+    "styled-components": "^5.3.11"
   },
   "engines": {
-    "node": "18.2.x",
-    "npm": "9.x"
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
   },
   "strapi": {
     "uuid": "8164c1f9-39ae-49ac-8bd9-cef8974fd230"
