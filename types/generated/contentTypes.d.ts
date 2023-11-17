@@ -692,7 +692,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required;
     date: Attribute.DateTime & Attribute.Required;
     location: Attribute.String & Attribute.Required;
-    teaser: Attribute.String & Attribute.Required;
+    teaser: Attribute.Text & Attribute.Required;
     hero_image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
