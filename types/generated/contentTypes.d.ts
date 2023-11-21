@@ -683,12 +683,13 @@ export interface ApiAboutAbout extends Schema.CollectionType {
     singularName: 'about';
     pluralName: 'abouts';
     displayName: 'About';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
+    title: Attribute.String;
     description: Attribute.Text & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
