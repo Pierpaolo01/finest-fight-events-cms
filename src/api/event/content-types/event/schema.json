@@ -38,6 +38,15 @@
         "videos",
         "audios"
       ]
+    },
+    "lineups": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lineup.lineup"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
