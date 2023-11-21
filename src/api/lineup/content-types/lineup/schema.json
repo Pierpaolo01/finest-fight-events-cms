@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lineups",
+  "info": {
+    "singularName": "lineup",
+    "pluralName": "lineups",
+    "displayName": "Lineup"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fighter_a_name": {
+      "type": "string",
+      "required": true
+    },
+    "fighter_a_nickname": {
+      "type": "string"
+    },
+    "fighter_a_cover": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "fighter_b_name": {
+      "type": "string",
+      "required": true
+    },
+    "fighter_b_nickname": {
+      "type": "string"
+    },
+    "fighter_b_cover": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

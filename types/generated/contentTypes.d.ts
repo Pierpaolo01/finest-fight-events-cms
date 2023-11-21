@@ -694,6 +694,12 @@ export interface ApiEventEvent extends Schema.CollectionType {
     location: Attribute.String & Attribute.Required;
     teaser: Attribute.Text & Attribute.Required;
     hero_image: Attribute.Media;
+    lineups: Attribute.Relation<
+      'api::event.event',
+      'oneToMany',
+      'api::lineup.lineup'
+    >;
+    is_featured: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -746,6 +752,41 @@ export interface ApiHeroSectionHeroSection extends Schema.SingleType {
   };
 }
 
+export interface ApiLineupLineup extends Schema.CollectionType {
+  collectionName: 'lineups';
+  info: {
+    singularName: 'lineup';
+    pluralName: 'lineups';
+    displayName: 'Lineup';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    fighter_a_name: Attribute.String & Attribute.Required;
+    fighter_a_nickname: Attribute.String;
+    fighter_a_cover: Attribute.Media;
+    fighter_b_name: Attribute.String & Attribute.Required;
+    fighter_b_nickname: Attribute.String;
+    fighter_b_cover: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::lineup.lineup',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::lineup.lineup',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -764,6 +805,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::event.event': ApiEventEvent;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
+      'api::lineup.lineup': ApiLineupLineup;
     }
   }
 }
