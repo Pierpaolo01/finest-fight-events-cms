@@ -758,6 +758,7 @@ export interface ApiLineupLineup extends Schema.CollectionType {
     singularName: 'lineup';
     pluralName: 'lineups';
     displayName: 'Lineup';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -769,6 +770,7 @@ export interface ApiLineupLineup extends Schema.CollectionType {
     fighter_b_name: Attribute.String & Attribute.Required;
     fighter_b_nickname: Attribute.String;
     fighter_b_cover: Attribute.Media;
+    lineup_name: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

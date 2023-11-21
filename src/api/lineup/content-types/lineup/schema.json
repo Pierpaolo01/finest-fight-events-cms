@@ -4,7 +4,8 @@
   "info": {
     "singularName": "lineup",
     "pluralName": "lineups",
-    "displayName": "Lineup"
+    "displayName": "Lineup",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,14 +20,15 @@
       "type": "string"
     },
     "fighter_a_cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "fighter_b_name": {
       "type": "string",
@@ -36,14 +38,19 @@
       "type": "string"
     },
     "fighter_b_cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "lineup_name": {
+      "type": "string",
+      "required": true
     }
   }
 }
