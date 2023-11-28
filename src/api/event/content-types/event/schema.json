@@ -49,6 +49,15 @@
     },
     "ticket_link": {
       "type": "text"
+    },
+    "promo_assets": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
     }
   }
 }

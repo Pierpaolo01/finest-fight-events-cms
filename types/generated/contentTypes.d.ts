@@ -738,6 +738,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'api::event-ticket.event-ticket'
     >;
     ticket_link: Attribute.Text;
+    promo_assets: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
