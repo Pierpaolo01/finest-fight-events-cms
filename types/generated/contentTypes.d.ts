@@ -732,6 +732,12 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'oneToMany',
       'api::lineup.lineup'
     >;
+    event_tickets: Attribute.Relation<
+      'api::event.event',
+      'oneToMany',
+      'api::event-ticket.event-ticket'
+    >;
+    ticket_link: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -750,25 +756,34 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
 }
 
-export interface ApiFaqFaq extends Schema.CollectionType {
-  collectionName: 'faqs';
+export interface ApiEventTicketEventTicket extends Schema.CollectionType {
+  collectionName: 'event_tickets';
   info: {
-    singularName: 'faq';
-    pluralName: 'faqs';
-    displayName: 'FAQ';
+    singularName: 'event-ticket';
+    pluralName: 'event-tickets';
+    displayName: 'Event ticket';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    question: Attribute.String & Attribute.Required;
-    answer: Attribute.Text & Attribute.Required;
+    ticket: Attribute.Text & Attribute.Required;
+    price: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+    createdBy: Attribute.Relation<
+      'api::event-ticket.event-ticket',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
-    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+    updatedBy: Attribute.Relation<
+      'api::event-ticket.event-ticket',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -892,7 +907,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about.about': ApiAboutAbout;
       'api::event.event': ApiEventEvent;
-      'api::faq.faq': ApiFaqFaq;
+      'api::event-ticket.event-ticket': ApiEventTicketEventTicket;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::lineup.lineup': ApiLineupLineup;
       'api::newsletter-form.newsletter-form': ApiNewsletterFormNewsletterForm;

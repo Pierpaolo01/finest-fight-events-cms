@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_tickets",
+  "info": {
+    "singularName": "event-ticket",
+    "pluralName": "event-tickets",
+    "displayName": "Event ticket",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ticket": {
+      "type": "text",
+      "required": true
+    },
+    "price": {
+      "type": "decimal"
+    }
+  }
+}
