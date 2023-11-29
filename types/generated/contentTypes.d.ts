@@ -727,18 +727,18 @@ export interface ApiEventEvent extends Schema.CollectionType {
     location: Attribute.String & Attribute.Required;
     teaser: Attribute.Text & Attribute.Required;
     hero_image: Attribute.Media;
-    lineups: Attribute.Relation<
-      'api::event.event',
-      'oneToMany',
-      'api::lineup.lineup'
-    >;
+    ticket_link: Attribute.Text;
+    promo_assets: Attribute.Media;
     event_tickets: Attribute.Relation<
       'api::event.event',
       'oneToMany',
       'api::event-ticket.event-ticket'
     >;
-    ticket_link: Attribute.Text;
-    promo_assets: Attribute.Media;
+    lineups: Attribute.Relation<
+      'api::event.event',
+      'oneToMany',
+      'api::lineup.lineup'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -771,6 +771,11 @@ export interface ApiEventTicketEventTicket extends Schema.CollectionType {
   attributes: {
     ticket: Attribute.Text & Attribute.Required;
     price: Attribute.Decimal;
+    event: Attribute.Relation<
+      'api::event-ticket.event-ticket',
+      'manyToOne',
+      'api::event.event'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -842,6 +847,11 @@ export interface ApiLineupLineup extends Schema.CollectionType {
     fighter_b_nickname: Attribute.String;
     fighter_b_cover: Attribute.Media;
     lineup_name: Attribute.String & Attribute.Required;
+    event: Attribute.Relation<
+      'api::lineup.lineup',
+      'manyToOne',
+      'api::event.event'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

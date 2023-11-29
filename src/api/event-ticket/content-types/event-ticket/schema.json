@@ -18,6 +18,12 @@
     },
     "price": {
       "type": "decimal"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "event_tickets"
     }
   }
 }

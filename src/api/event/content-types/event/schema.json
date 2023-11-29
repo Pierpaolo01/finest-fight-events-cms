@@ -37,16 +37,6 @@
         "videos"
       ]
     },
-    "lineups": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::lineup.lineup"
-    },
-    "event_tickets": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::event-ticket.event-ticket"
-    },
     "ticket_link": {
       "type": "text"
     },
@@ -58,6 +48,18 @@
         "images",
         "videos"
       ]
+    },
+    "event_tickets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event-ticket.event-ticket",
+      "mappedBy": "event"
+    },
+    "lineups": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lineup.lineup",
+      "mappedBy": "event"
     }
   }
 }
