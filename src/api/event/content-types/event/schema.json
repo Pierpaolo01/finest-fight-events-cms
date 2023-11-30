@@ -67,14 +67,17 @@
       "target": "api::event-fighter.event-fighter",
       "mappedBy": "event"
     },
-    "collage": {
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "videos"
-      ],
-      "type": "media",
-      "multiple": true,
-      "required": false
+      ]
+    },
+    "gallery_heading": {
+      "type": "string"
     }
   }
 }

@@ -744,7 +744,8 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'oneToMany',
       'api::event-fighter.event-fighter'
     >;
-    collage: Attribute.Media;
+    gallery: Attribute.Media;
+    gallery_heading: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
