@@ -66,6 +66,15 @@
       "relation": "oneToMany",
       "target": "api::event-fighter.event-fighter",
       "mappedBy": "event"
+    },
+    "collage": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": false
     }
   }
 }
