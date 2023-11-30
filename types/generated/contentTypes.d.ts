@@ -715,7 +715,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
   info: {
     singularName: 'event';
     pluralName: 'events';
-    displayName: 'event';
+    displayName: 'Event';
     description: '';
   };
   options: {
@@ -739,6 +739,11 @@ export interface ApiEventEvent extends Schema.CollectionType {
       'oneToMany',
       'api::lineup.lineup'
     >;
+    event_fighters: Attribute.Relation<
+      'api::event.event',
+      'oneToMany',
+      'api::event-fighter.event-fighter'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -750,6 +755,42 @@ export interface ApiEventEvent extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEventFighterEventFighter extends Schema.CollectionType {
+  collectionName: 'event_fighters';
+  info: {
+    singularName: 'event-fighter';
+    pluralName: 'event-fighters';
+    displayName: 'Event fighter';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    fighter_name: Attribute.String & Attribute.Required;
+    event: Attribute.Relation<
+      'api::event-fighter.event-fighter',
+      'manyToOne',
+      'api::event.event'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::event-fighter.event-fighter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::event-fighter.event-fighter',
       'oneToOne',
       'admin::user'
     > &
@@ -918,6 +959,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about.about': ApiAboutAbout;
       'api::event.event': ApiEventEvent;
+      'api::event-fighter.event-fighter': ApiEventFighterEventFighter;
       'api::event-ticket.event-ticket': ApiEventTicketEventTicket;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::lineup.lineup': ApiLineupLineup;

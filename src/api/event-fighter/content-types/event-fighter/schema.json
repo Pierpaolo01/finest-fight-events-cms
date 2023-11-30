@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_fighters",
+  "info": {
+    "singularName": "event-fighter",
+    "pluralName": "event-fighters",
+    "displayName": "Event fighter",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fighter_name": {
+      "type": "string",
+      "required": true
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "event_fighters"
+    }
+  }
+}
