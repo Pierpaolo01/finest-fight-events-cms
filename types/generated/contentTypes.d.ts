@@ -746,6 +746,11 @@ export interface ApiEventEvent extends Schema.CollectionType {
     >;
     gallery: Attribute.Media;
     gallery_heading: Attribute.String;
+    event_videos: Attribute.Relation<
+      'api::event.event',
+      'oneToMany',
+      'api::event-video.event-video'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -830,6 +835,43 @@ export interface ApiEventTicketEventTicket extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::event-ticket.event-ticket',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEventVideoEventVideo extends Schema.CollectionType {
+  collectionName: 'event_videos';
+  info: {
+    singularName: 'event-video';
+    pluralName: 'event-videos';
+    displayName: 'Event video';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    link: Attribute.Text & Attribute.Required;
+    event: Attribute.Relation<
+      'api::event-video.event-video',
+      'manyToOne',
+      'api::event.event'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::event-video.event-video',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::event-video.event-video',
       'oneToOne',
       'admin::user'
     > &
@@ -963,6 +1005,7 @@ declare module '@strapi/types' {
       'api::event.event': ApiEventEvent;
       'api::event-fighter.event-fighter': ApiEventFighterEventFighter;
       'api::event-ticket.event-ticket': ApiEventTicketEventTicket;
+      'api::event-video.event-video': ApiEventVideoEventVideo;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::lineup.lineup': ApiLineupLineup;
       'api::newsletter-form.newsletter-form': ApiNewsletterFormNewsletterForm;

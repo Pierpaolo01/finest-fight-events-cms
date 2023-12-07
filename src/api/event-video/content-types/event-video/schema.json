@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_videos",
+  "info": {
+    "singularName": "event-video",
+    "pluralName": "event-videos",
+    "displayName": "Event video",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "link": {
+      "type": "text",
+      "required": true
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "event_videos"
+    }
+  }
+}

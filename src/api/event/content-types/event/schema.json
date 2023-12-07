@@ -78,6 +78,12 @@
     },
     "gallery_heading": {
       "type": "string"
+    },
+    "event_videos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event-video.event-video",
+      "mappedBy": "event"
     }
   }
 }
